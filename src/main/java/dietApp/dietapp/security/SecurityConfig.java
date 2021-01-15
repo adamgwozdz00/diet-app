@@ -34,14 +34,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/register").permitAll()
                 .antMatchers("/users").hasAnyAuthority("ADMIN","USER")
-                .antMatchers("/h2-console/**").hasAuthority("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
+                .csrf().disable()
                 .formLogin()
                 .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/success", true)

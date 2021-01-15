@@ -1,4 +1,4 @@
-package dietApp.dietapp.config;
+package dietApp.dietapp.controller;
 
 import dietApp.dietapp.model.User;
 import dietApp.dietapp.service.RegisterService;
@@ -13,8 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/")
-public class TemplatesController {
+public class LoginRegisterController {
 
     @Autowired
     private RegisterService service;
@@ -22,16 +21,6 @@ public class TemplatesController {
     @GetMapping("login")
     public String getLoginView(){
         return "login";
-    }
-
-    @GetMapping("success")
-    public String getSuccess(){
-        return "success";
-    }
-
-    @GetMapping("/")
-    public String welcome() {
-        return "index";
     }
 
     @RequestMapping(value="/register", method = RequestMethod.GET)
