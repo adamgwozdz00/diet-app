@@ -18,6 +18,8 @@ Technologies:
 Funcionality:
 
 -Register
+
 -Login
+
 -Map data from api.edamam.com to Food class
 
