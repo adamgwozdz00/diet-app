@@ -1,4 +1,4 @@
-package dietApp.dietapp.model;
+package dietApp.dietapp.client.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
