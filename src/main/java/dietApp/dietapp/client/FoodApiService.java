@@ -2,11 +2,9 @@ package dietApp.dietapp.client;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import dietApp.dietapp.client.FoodApiClient;
 import dietApp.dietapp.mapper.ApplicationCustomMapper;
 import dietApp.dietapp.mapper.CustomJsonNode;
-import dietApp.dietapp.model.Food;
+import dietApp.dietapp.client.dto.Food;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
