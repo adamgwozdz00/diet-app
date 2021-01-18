@@ -15,3 +15,9 @@ Technologies:
 2. MySql
 3. JUnit5
 
+Funcionality:
+
+-Register
+-Login
+-Map data from api.edamam.com to Food class
+
