@@ -9,6 +9,7 @@ Dependencies:
 5. Jackson 
 6. Thymeleaf
 7. Lombok
+
 Technologies:
 1. Java 15
 2. MySql
