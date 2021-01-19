@@ -15,7 +15,7 @@ public class TestService {
 
     @Scheduled(fixedDelay = 12000)
     void print() throws JsonProcessingException {
-        System.out.println(foodApiService.mapClientToFood("potato"));
+        System.out.println(foodApiService.mapClientToFood("chocolate"));
     }
 
 }
