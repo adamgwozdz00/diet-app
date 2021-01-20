@@ -8,7 +8,7 @@ import java.util.Date;
 public class DailyNutrients {
 
     @Id
-    private Long user_id;
+    private Long userId;
 
     private Date date;
 
