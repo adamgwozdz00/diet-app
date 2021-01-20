@@ -2,7 +2,7 @@ package dietApp.dietapp.controller;
 
 import dietApp.dietapp.model.User;
 import dietApp.dietapp.service.RegisterService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 public class LoginRegisterController {
 
-    @Autowired
-    private RegisterService service;
+    private final RegisterService service;
 
     @GetMapping("login")
     public String getLoginView(){
