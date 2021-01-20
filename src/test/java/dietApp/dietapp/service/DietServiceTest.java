@@ -3,14 +3,11 @@ package dietApp.dietapp.service;
 import dietApp.dietapp.model.Diet;
 import dietApp.dietapp.model.DishType;
 import dietApp.dietapp.repository.DietRepository;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
 
 
 import java.util.Date;
@@ -20,11 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SpringBootTest
-@AutoConfigureMockMvc
 class DietServiceTest {
 
-    @Autowired
-    private MockMvc mockMvc;
     @Autowired
     private DietRepository dietRepository;
     @Autowired
@@ -38,13 +32,27 @@ class DietServiceTest {
     }
 
     @Test
-    void shouldReturnCorrectSizeOfUserDiet() {
+    void shouldReturnCorrectSizeOfUserDietBeforeAddFoodToDiet() {
     //given
-        service.addFoodToDiet(1L,DishType.DINNER,"egg");
-        service.addFoodToDiet(1L,DishType.DINNER,"chicken");
+        service.addFoodToDiet("adas4",DishType.DINNER,"egg");
+        service.addFoodToDiet("adas4",DishType.DINNER,"chicken");
+        int size = 2;
     //when
-        List<Diet> found = dietRepository.findAllByUserId(1L);
+        List<Diet> found = dietRepository.findAllByUser("adas4");
     //then
-        assertThat(found.size()).isEqualTo(2);
+        assertThat(found.size()).isEqualTo(size);
     }
+
+    @Test
+    void shouldReturnCorrectSizeOfUserDietBeforeDeleteFoodFromDiet(){
+        //given
+        int size = 1;
+        //when
+        service.deleteFood(3L);
+        List<Diet> found = dietRepository.findAllByUser("adas4");
+        //then
+        assertThat(found.size()).isEqualTo(size);
+    }
+
+
 }

@@ -16,24 +16,24 @@
 <body>
 <div class="d-flex justify-content-center">
     <div class="d-flex flex-column">
-    <h1 >Form</h1>
+    <h1 >Search Food</h1>
 <form action="#" th:action="@{/foods}" th:object="${foodName}" method="post">
     <div class="d-flex flex-row">
     <p><input type="text" th:field="*{name}" class="form-control" placeholder="food name"></p>
-    <p><input type="submit" value="Search" class="btn btn-outline-secondary"></p>
+    <p><input type="submit" value="Search" class="btn btn-outline-success"></p>
     </div>
 </form>
-    <h1 >Result</h1>
+        <h1 th:text="${food.getName()} "></h1>
         <div class="result">
-    <p class="rounded border border-primary" th:text="'Name: ' + ${food.getName()} "/>
-        <p class="rounded border border-secondary" th:text="'Calories: ' + ${food.getCalories()} + ' kcal'"/>
-    <p class="rounded border border-success" th:text="'Weight: ' + ${food.getWeight()} +' gram'"/>
-    <p class="rounded border border-danger" th:text="'Carbohydrates: ' + ${food.getCarbohydrates()} + ' gram'"/>
-    <p class="rounded border border-warning" th:text="'Fat: ' + ${food.getFat()} + ' gram'"/>
-    <p class="rounded border border-info" th:text="'Protein: ' + ${food.getProtein()} + ' gram'"/>
-    <p class="rounded border border-white" th:text="'Sugar: ' + ${food.getSugar()} + ' gram'"/>
+            <p class="rounded border border-secondary" th:text="'Calories: ' + ${food.getCalories()} + ' kcal'"/>
+            <p class="rounded border border-success" th:text="'Weight: ' + ${food.getWeight()} +' gram'"/>
+            <p class="rounded border border-danger" th:text="'Carbohydrates: ' + ${food.getCarbohydrates()} + ' gram'"/>
+            <p class="rounded border border-warning" th:text="'Fat: ' + ${food.getFat()} + ' gram'"/>
+            <p class="rounded border border-info" th:text="'Protein: ' + ${food.getProtein()} + ' gram'"/>
+            <p class="rounded border border-white" th:text="'Sugar: ' + ${food.getSugar()} + ' gram'"/>
         </div>
-        </div>
+        <button type="button" class="btn btn-outline-success">Add food</button>
+    </div>
 </div>
 </body>
 </html>
