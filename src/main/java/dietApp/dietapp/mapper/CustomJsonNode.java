@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class CustomJsonNode {
 
-    private ApplicationCustomMapper mapper;
+    private  ApplicationCustomMapper mapper;
 
     private JsonNode node;
 
