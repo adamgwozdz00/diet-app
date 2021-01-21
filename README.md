@@ -16,6 +16,7 @@ Implemented functionality:
 - [x] Login.
 - [x] Register and login exceptions. 
 - [ ] Food and diet  exceptions.
+- [ ] Mobile view.
 
 
 Dependencies:
