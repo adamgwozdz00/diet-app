@@ -1,7 +1,7 @@
 package dietApp.dietapp.diet.service.impl;
 
 import dietApp.dietapp.food.dto.Food;
-import dietApp.dietapp.config.CurrentDateAsString;
+import dietApp.dietapp.CurrentDateAsString;
 import dietApp.dietapp.diet.entity.Diet;
 import dietApp.dietapp.diet.entity.DishType;
 import dietApp.dietapp.diet.repository.DietRepository;

@@ -1,4 +1,4 @@
-package dietApp.dietapp.config;
+package dietApp.dietapp;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

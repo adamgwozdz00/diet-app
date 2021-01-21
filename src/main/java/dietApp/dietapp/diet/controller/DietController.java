@@ -1,6 +1,6 @@
 package dietApp.dietapp.diet.controller;
 
-import dietApp.dietapp.config.CurrentDateAsString;
+import dietApp.dietapp.CurrentDateAsString;
 import dietApp.dietapp.diet.entity.Diet;
 import dietApp.dietapp.diet.service.DietService;
 import dietApp.dietapp.user.service.UserService;

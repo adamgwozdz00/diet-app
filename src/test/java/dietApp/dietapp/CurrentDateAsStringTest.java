@@ -1,5 +1,6 @@
-package dietApp.dietapp.config;
+package dietApp.dietapp;
 
+import dietApp.dietapp.CurrentDateAsString;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
