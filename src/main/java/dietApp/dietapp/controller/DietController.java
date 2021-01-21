@@ -1,6 +1,5 @@
 package dietApp.dietapp.controller;
 
-import dietApp.dietapp.client.dto.Food;
 import dietApp.dietapp.config.CurrentDateAsString;
 import dietApp.dietapp.model.Diet;
 import dietApp.dietapp.service.DietService;
@@ -8,9 +7,7 @@ import dietApp.dietapp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,9 +26,9 @@ public class DietController {
         return "diet";
     }
 
-    @DeleteMapping("/diet/delete")
-    public String deleteUserDiet(@ModelAttribute Long id){
-        dietService.deleteFood(id);
+    @PostMapping("/diet/delete")
+    public String deleteUserDiet(@RequestParam(value = "index") Long index){
+        dietService.deleteFood(index);
         return "redirect:/diet";
     }
 

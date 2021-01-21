@@ -12,9 +12,20 @@
             background-color: #333;
             color: white;
         }
-        h1{
+        h1 {
             text-align: center;
         }
+        form{
+            margin: 0;
+        }
+        .pop{
+            color: #fff;
+            font-size: large;
+            background-color:#28a745;
+            border-radius: 25em;
+            border: 1px solid transparent;
+        }
+
     </style>
 </head>
 <body>
@@ -43,16 +54,21 @@
                  <td><span th:text="${d.getCarbohydrates()}"></span></td>
                  <td><span th:text="${d.getSugar()}"></span></td>
                  <td>
-                     <form th:action="@{/diet/delete}" method="get">
-                        <button th:field="${d.getId()}"> </button>
-                    </form>
+                     <form style="margin: 0" th:action="@{/diet/delete}" method="post">
+                         <button class="pop" type="submit" th:name="index" th:value="${d.getId()}">-</button>
+                     </form>
                  </td>
              </tr>
              </tbody>
          </table>
-    <form class="form-signin" method="get" action="/logout">
-        <button class="btn btn-lg btn-success btn-block" type="submit">Logout</button>
-    </form>
+            <div class="d-flex flex-row justify-content-center">
+                <form style="margin-right: 2px" method="get" action="/foods">
+                    <button type="submit" class="btn btn-lg btn-success btn-block" >food</button>
+                </form>
+                <form style="margin-left: 2px"  method="get" action="/logout">
+                    <button class="btn btn-lg btn-success btn-block" type="submit">Logout</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

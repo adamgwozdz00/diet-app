@@ -39,6 +39,7 @@ public class Diet {
         this.date = date;
         this.dishType = dishType;
         this.food = food;
+        this.weight = weight;
         this.calories = calories;
         this.protein = protein;
         this.fat = fat;

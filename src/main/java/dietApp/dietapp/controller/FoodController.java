@@ -40,7 +40,7 @@ public class FoodController {
     @GetMapping("/foods/add")
     public String addUserFood(){
         dietService.addFoodToDiet(userService.getCurrentUserUsername(), DishType.OTHER,food.getName(),food.getWeight(),food.getCalories(),food.getCarbohydrates(),food.getFat(),food.getProtein(),food.getSugar());
-        return "redirect:/foods";
+        return "redirect:/diet";
     }
 
 
