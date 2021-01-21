@@ -1,8 +1,8 @@
-package dietApp.dietapp.controller;
+package dietApp.dietapp.diet.controller;
 
 import dietApp.dietapp.config.CurrentDateAsString;
-import dietApp.dietapp.model.Diet;
-import dietApp.dietapp.service.DietService;
+import dietApp.dietapp.diet.entity.Diet;
+import dietApp.dietapp.diet.service.DietService;
 import dietApp.dietapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -17,6 +17,7 @@ public class DietController {
 
     private final DietService dietService;
     private final UserService userService;
+    // Date is here because in the future I want to add function that allow to check diet bays before
     private String date = CurrentDateAsString.getTodayDate();
 
     @GetMapping("/diet")

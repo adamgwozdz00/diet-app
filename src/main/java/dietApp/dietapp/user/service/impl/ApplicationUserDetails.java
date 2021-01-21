@@ -1,6 +1,6 @@
 package dietApp.dietapp.user.service.impl;
 
-import dietApp.dietapp.model.User;
+import dietApp.dietapp.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,7 +1,7 @@
-package dietApp.dietapp.repository;
+package dietApp.dietapp.diet.repository;
 
 
-import dietApp.dietapp.model.Diet;
+import dietApp.dietapp.diet.entity.Diet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

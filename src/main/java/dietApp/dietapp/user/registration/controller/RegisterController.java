@@ -1,7 +1,6 @@
 package dietApp.dietapp.user.registration.controller;
 
-import dietApp.dietapp.model.User;
-//import dietApp.dietapp.service.RegisterService;
+import dietApp.dietapp.user.entity.User;
 import dietApp.dietapp.user.registration.service.UserRegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

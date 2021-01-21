@@ -1,6 +1,6 @@
 package dietApp.dietapp.trial;
 
-import dietApp.dietapp.model.User;
+import dietApp.dietapp.user.entity.User;
 import dietApp.dietapp.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

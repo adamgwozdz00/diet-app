@@ -1,5 +1,6 @@
 package dietApp.dietapp.model;
 
+import dietApp.dietapp.user.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

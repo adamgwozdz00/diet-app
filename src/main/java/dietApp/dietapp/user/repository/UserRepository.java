@@ -1,6 +1,6 @@
 package dietApp.dietapp.user.repository;
 
-import dietApp.dietapp.model.User;
+import dietApp.dietapp.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

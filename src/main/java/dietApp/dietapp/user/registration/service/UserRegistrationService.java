@@ -1,6 +1,6 @@
 package dietApp.dietapp.user.registration.service;
 
-import dietApp.dietapp.model.User;
+import dietApp.dietapp.user.entity.User;
 
 
 public interface UserRegistrationService {

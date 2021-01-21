@@ -1,4 +1,4 @@
-package dietApp.dietapp.client.dto;
+package dietApp.dietapp.food.dto;
 
 import lombok.*;
 

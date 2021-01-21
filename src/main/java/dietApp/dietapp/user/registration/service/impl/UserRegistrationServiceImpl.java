@@ -2,7 +2,7 @@ package dietApp.dietapp.user.registration.service.impl;
 
 import dietApp.dietapp.exception.UserAlreadyExistException;
 import dietApp.dietapp.exception.UserPasswordsNotSameException;
-import dietApp.dietapp.model.User;
+import dietApp.dietapp.user.entity.User;
 import dietApp.dietapp.user.registration.service.UserRegistrationService;
 import dietApp.dietapp.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
     @Override
-    public User registerUser(dietApp.dietapp.model.User user) throws Exception {
+    public User registerUser(User user) throws Exception {
         if (user.getPassword().equals(user.getConfirmPassword())) {
             try {
                 user.setPassword(passwordEncoder.encode(user.getPassword()));

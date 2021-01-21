@@ -1,12 +1,12 @@
-package dietApp.dietapp.controller;
+package dietApp.dietapp.food.controller;
 
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import dietApp.dietapp.client.dto.Food;
-import dietApp.dietapp.model.DishType;
-import dietApp.dietapp.service.DietService;
-import dietApp.dietapp.service.FoodService;
+import dietApp.dietapp.food.dto.Food;
+import dietApp.dietapp.diet.entity.DishType;
+import dietApp.dietapp.diet.service.impl.DietServiceImpl;
+import dietApp.dietapp.food.service.FoodService;
 import dietApp.dietapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class FoodController {
 
     private final FoodService foodService;
-    private final DietService dietService;
+    private final DietServiceImpl dietService;
     private final UserService userService;
     private Food food = new Food();
 
@@ -39,7 +39,7 @@ public class FoodController {
 
     @GetMapping("/foods/add")
     public String addUserFood(){
-        dietService.addFoodToDiet(userService.getCurrentUserUsername(), DishType.OTHER,food.getName(),food.getWeight(),food.getCalories(),food.getCarbohydrates(),food.getFat(),food.getProtein(),food.getSugar());
+        dietService.addFoodToDiet(userService.getCurrentUserUsername(), DishType.OTHER,food);
         return "redirect:/diet";
     }
 
