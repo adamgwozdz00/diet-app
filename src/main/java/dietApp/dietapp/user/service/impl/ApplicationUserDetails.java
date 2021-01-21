@@ -1,4 +1,4 @@
-package dietApp.dietapp.security.userdetails;
+package dietApp.dietapp.user.service.impl;
 
 import dietApp.dietapp.model.User;
 import lombok.RequiredArgsConstructor;

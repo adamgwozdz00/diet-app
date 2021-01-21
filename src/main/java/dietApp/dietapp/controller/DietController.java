@@ -3,7 +3,7 @@ package dietApp.dietapp.controller;
 import dietApp.dietapp.config.CurrentDateAsString;
 import dietApp.dietapp.model.Diet;
 import dietApp.dietapp.service.DietService;
-import dietApp.dietapp.service.UserService;
+import dietApp.dietapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

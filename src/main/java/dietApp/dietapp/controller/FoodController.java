@@ -7,7 +7,7 @@ import dietApp.dietapp.client.dto.Food;
 import dietApp.dietapp.model.DishType;
 import dietApp.dietapp.service.DietService;
 import dietApp.dietapp.service.FoodService;
-import dietApp.dietapp.service.UserService;
+import dietApp.dietapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

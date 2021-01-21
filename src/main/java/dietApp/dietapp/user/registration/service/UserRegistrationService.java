@@ -1,4 +1,4 @@
-package dietApp.dietapp.user.registration.infrastructure;
+package dietApp.dietapp.user.registration.service;
 
 import dietApp.dietapp.model.User;
 
