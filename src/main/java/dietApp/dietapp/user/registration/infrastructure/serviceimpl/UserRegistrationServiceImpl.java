@@ -1,21 +1,22 @@
-package dietApp.dietapp.service;
+package dietApp.dietapp.user.registration.infrastructure.serviceimpl;
 
 import dietApp.dietapp.exception.UserAlreadyExistException;
 import dietApp.dietapp.exception.UserPasswordsNotSameException;
 import dietApp.dietapp.model.User;
-import dietApp.dietapp.repository.UserRepository;
+import dietApp.dietapp.user.registration.infrastructure.UserRegistrationService;
+import dietApp.dietapp.user.registration.infrastructure.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class RegisterService {
+public class UserRegistrationServiceImpl implements UserRegistrationService {
 
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
-
-    public User registerUser(User user) throws Exception {
+    @Override
+    public User registerUser(dietApp.dietapp.model.User user) throws Exception {
         if (user.getPassword().equals(user.getConfirmPassword())) {
             try {
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -27,6 +28,4 @@ public class RegisterService {
         }
         else throw new UserPasswordsNotSameException();
     }
-
-
 }

@@ -1,4 +1,4 @@
-package dietApp.dietapp.repository;
+package dietApp.dietapp.user.registration.infrastructure.repository;
 
 import dietApp.dietapp.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -2,7 +2,7 @@ package dietApp.dietapp.security.userdetails;
 
 import dietApp.dietapp.exception.UserAlreadyExistException;
 import dietApp.dietapp.model.User;
-import dietApp.dietapp.repository.UserRepository;
+import dietApp.dietapp.user.registration.infrastructure.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
