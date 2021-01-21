@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/success", true)
+                .defaultSuccessUrl("/diet", true)
                 .and()
                 .rememberMe()
                 .tokenValiditySeconds((int) TimeUnit.HOURS.toSeconds(8))

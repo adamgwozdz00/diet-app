@@ -1,13 +1,13 @@
 package dietApp.dietapp.service;
 
+import dietApp.dietapp.client.dto.Food;
+import dietApp.dietapp.config.CurrentDateAsString;
 import dietApp.dietapp.model.Diet;
 import dietApp.dietapp.model.DishType;
 import dietApp.dietapp.repository.DietRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 
@@ -16,27 +16,35 @@ import java.util.List;
 public class DietService {
 
     private final DietRepository dietRepository;
-    private Date date = new Date();
+    private String date = CurrentDateAsString.getTodayDate();
 
 
-    public Diet addFoodToDiet(String username, DishType dishType,String foodName){
+    public Diet addFoodToDiet(String username,
+                              DishType dishType,
+                              String foodName,
+                              float weight,
+                              float calories,
+                              float carbohydrates,
+                              float fat,
+                              float protein,
+                              float sugar){
 
-        Diet diet = new Diet();
-        diet.setUser(username);
-        diet.setDishType(dishType);
-        diet.setFood(foodName);
-        diet.setDate(date);
-
-        return dietRepository.save(diet);
+        return dietRepository.save(new Diet(
+                username,dishType,foodName,weight,calories,carbohydrates,fat,protein,sugar,date
+        ));
     }
+
+
 
     public void deleteFood(Long id){
         dietRepository.deleteById(id);
     }
 
-    public List<Diet> getUserDiet(String username){
-        return dietRepository.findAllByUser(username);
+    public List<Diet> getUserDiet(String username, String date){
+        return dietRepository.findAllByUserAndDate(username,date);
     }
+
+
 
 
 }

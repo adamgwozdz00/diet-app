@@ -32,7 +32,9 @@
             <p class="rounded border border-info" th:text="'Protein: ' + ${food.getProtein()} + ' gram'"/>
             <p class="rounded border border-white" th:text="'Sugar: ' + ${food.getSugar()} + ' gram'"/>
         </div>
-        <button type="button" class="btn btn-outline-success">Add food</button>
+        <form th:action="@{/foods/add}" th:method="post">
+            <button  type="Submit" class="btn btn-outline-success">Add food</button>
+        </form>
     </div>
 </div>
 </body>

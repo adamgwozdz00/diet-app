@@ -15,10 +15,7 @@ public class TemplatesController {
     @Autowired
     private RegisterService service;
 
-    @GetMapping("success")
-    public String getSuccess(){
-        return "success";
-    }
+
 
     @GetMapping
     public String welcome() {

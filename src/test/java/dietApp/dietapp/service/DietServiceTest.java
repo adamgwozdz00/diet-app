@@ -1,5 +1,7 @@
 package dietApp.dietapp.service;
 
+import dietApp.dietapp.client.dto.Food;
+import dietApp.dietapp.config.CurrentDateAsString;
 import dietApp.dietapp.model.Diet;
 import dietApp.dietapp.model.DishType;
 import dietApp.dietapp.repository.DietRepository;
@@ -24,21 +26,21 @@ class DietServiceTest {
     @Autowired
     private DietService service;
 
-    private Date date;
+    private String date ;
 
     @BeforeEach
     void init(){
-        date = new Date();
+        date = CurrentDateAsString.getTodayDate();
     }
 
     @Test
     void shouldReturnCorrectSizeOfUserDietBeforeAddFoodToDiet() {
     //given
-        service.addFoodToDiet("adas4",DishType.DINNER,"egg");
-        service.addFoodToDiet("adas4",DishType.DINNER,"chicken");
+        service.addFoodToDiet("adas4",DishType.DINNER,"egg",100,100,0,5,7,0);
+        service.addFoodToDiet("adas4",DishType.DINNER,"chicken",100,200,0,2,3,4);
         int size = 2;
     //when
-        List<Diet> found = dietRepository.findAllByUser("adas4");
+        List<Diet> found = dietRepository.findAllByUserAndDate("adas4",date);
     //then
         assertThat(found.size()).isEqualTo(size);
     }
@@ -49,7 +51,7 @@ class DietServiceTest {
         int size = 1;
         //when
         service.deleteFood(3L);
-        List<Diet> found = dietRepository.findAllByUser("adas4");
+        List<Diet> found = dietRepository.findAllByUserAndDate("adas4",date);
         //then
         assertThat(found.size()).isEqualTo(size);
     }
