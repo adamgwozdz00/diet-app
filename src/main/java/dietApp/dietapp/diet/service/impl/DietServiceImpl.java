@@ -1,5 +1,6 @@
 package dietApp.dietapp.diet.service.impl;
 
+import dietApp.dietapp.diet.dto.NutritionValuesDto;
 import dietApp.dietapp.food.dto.Food;
 import dietApp.dietapp.CurrentDateAsString;
 import dietApp.dietapp.diet.entity.Diet;
@@ -45,5 +46,15 @@ public class DietServiceImpl implements DietService {
     @Override
     public List<Diet> getUserDiet(String username, String date){
         return dietRepository.findAllByUserAndDate(username,date);
+    }
+
+    @Override
+    public NutritionValuesDto getUserTotalNutritionValues(String username, String date) {
+        try {
+            return dietRepository.getTotalNutritionValues(username, date).orElseThrow();
+        } catch (Exception e){
+            e.getMessage();
+        }
+        return null;
     }
 }

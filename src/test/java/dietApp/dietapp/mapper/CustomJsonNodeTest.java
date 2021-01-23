@@ -16,8 +16,8 @@ class CustomJsonNodeTest {
     void shouldReturnJsonCorrectJsonNode() throws JsonProcessingException {
         //given
         JsonNode testNode = mapper.parse("{\"age\":0.0 }");
-        CustomJsonNode node = new CustomJsonNode(mapper.parse(src));
         //when
+        CustomJsonNode node = new CustomJsonNode(mapper.parse(src));
         //then
         assertEquals(testNode.get("age").floatValue(),node.get("age").asFloat());
     }

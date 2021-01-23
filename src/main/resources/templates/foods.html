@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/foods.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/foodsSmall.css">
+
     <title>Diet App</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
     <style>
-        body{ margin: 0; background-color: #333333; color: white}
-        .result,h1{
+        body {
+            margin: 0;
+            background-color: #333333;
+            color: white
+        }
+
+        @media only screen and (max-width: 440px) {
+           #main{
+               height: 80vh;
+           }  
+        }
+
+        .result,
+        h1 {
             text-align: center;
         }
     </style>
 </head>
+
 <body>
-<div class="d-flex justify-content-center">
-    <div class="d-flex flex-column">
-    <h1 >Search Food</h1>
-<form action="#" th:action="@{/foods}" th:object="${foodName}" method="post">
-    <div class="d-flex flex-row">
-    <p><input type="text" th:field="*{name}" class="form-control" placeholder="food name"></p>
-    <p><input type="submit" value="Search" class="btn btn-outline-success"></p>
-    </div>
-</form>
-        <h1 th:text="${food.getName()} "></h1>
-        <div class="result">
-            <p class="rounded border border-secondary" th:text="'Calories: ' + ${food.getCalories()} + ' kcal'"/>
-            <p class="rounded border border-success" th:text="'Weight: ' + ${food.getWeight()} +' gram'"/>
-            <p class="rounded border border-danger" th:text="'Carbohydrates: ' + ${food.getCarbohydrates()} + ' gram'"/>
-            <p class="rounded border border-warning" th:text="'Fat: ' + ${food.getFat()} + ' gram'"/>
-            <p class="rounded border border-info" th:text="'Protein: ' + ${food.getProtein()} + ' gram'"/>
-            <p class="rounded border border-white" th:text="'Sugar: ' + ${food.getSugar()} + ' gram'"/>
+    <div class="d-flex justify-content-center align-items-center" id="main">
+        <div class="d-flex flex-column">
+            <h1>Search Food</h1>
+            <form action="#" th:action="@{/foods}" th:object="${foodName}" method="post">
+                <div class="d-flex flex-row">
+                    <p><input type="text" th:field="*{name}" class="form-control" placeholder="food name"></p>
+                    <p><input type="submit" value="Search" class="btn btn-outline-success"></p>
+                </div>
+            </form>
+            <h1 th:text="${food.getName()} "></h1>
+            <div class="result">
+                <p class="rounded border border-secondary" th:text="'Calories: ' + ${food.getCalories()} + ' kcal'" />
+                <p class="rounded border border-success" th:text="'Weight: ' + ${food.getWeight()} +' gram'" />
+                <p class="rounded border border-danger"
+                    th:text="'Carbohydrates: ' + ${food.getCarbohydrates()} + ' gram'" />
+                <p class="rounded border border-warning" th:text="'Fat: ' + ${food.getFat()} + ' gram'" />
+                <p class="rounded border border-info" th:text="'Protein: ' + ${food.getProtein()} + ' gram'" />
+                <p class="rounded border border-white" th:text="'Sugar: ' + ${food.getSugar()} + ' gram'" />
+            </div>
+            <form th:action="@{/foods/add}" th:method="get">
+                <button type="Submit" class="btn btn-outline-success">Add food</button>
+            </form>
         </div>
-        <form th:action="@{/foods/add}" th:method="get">
-            <button  type="Submit" class="btn btn-outline-success">Add food</button>
-        </form>
     </div>
-</div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 package dietApp.dietapp.diet.service;
 
+import dietApp.dietapp.diet.dto.NutritionValuesDto;
 import dietApp.dietapp.food.dto.Food;
 import dietApp.dietapp.diet.entity.Diet;
 import dietApp.dietapp.diet.entity.DishType;
@@ -11,4 +12,5 @@ public interface DietService {
     Diet addFoodToDiet(String username, DishType dishType, Food food);
     void deleteFood(Long id);
     List<Diet> getUserDiet(String username, String date);
+    NutritionValuesDto getUserTotalNutritionValues(String username, String date);
 }

@@ -1,75 +1,94 @@
 <html xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Diet App</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
     <style>
-        body{
+        body {
             background-color: #333;
             color: white;
+        }
+        @media only screen and (max-width: 440px) {
+        
         }
         h1 {
             text-align: center;
         }
-        form{
+
+        form {
             margin: 0;
         }
-        .pop{
+
+        .pop {
             color: #fff;
             font-size: large;
-            background-color:#28a745;
+            background-color: #28a745;
             border-radius: 25em;
             border: 1px solid transparent;
         }
-
     </style>
 </head>
+
 <body>
-    <div class="d-flex justify-content-center ">
+    <div class="d-flex justify-content-center" >
         <div class="d-flex flex-column">
-    <h1>Today Diet</h1>
-         <table class="table table-bordered">
-             <thead>
-             <tr>
-                 <th>Food</th>
-                 <th>Weight</th>
-                 <th>Calories</th>
-                 <th>Protein</th>
-                 <th>Fat</th>
-                 <th>Carbs</th>
-                 <th>Sugar</th>
-             </tr>
-             </thead>
-             <tbody>
-             <tr th:each="d : ${diet}">
-                 <td><span th:text="${d.getFood()} + ' '"> </span></td>
-                 <td><span th:text="${d.getWeight()} + ' '"> </span></td>
-                 <td><span th:text="${d.getCalories()}"></span></td>
-                 <td><span th:text="${d.getProtein()}"></span></td>
-                 <td><span th:text="${d.getFat()}"></span></td>
-                 <td><span th:text="${d.getCarbohydrates()}"></span></td>
-                 <td><span th:text="${d.getSugar()}"></span></td>
-                 <td>
-                     <form style="margin: 0" th:action="@{/diet/delete}" method="post">
-                         <button class="pop" type="submit" th:name="index" th:value="${d.getId()}">-</button>
-                     </form>
-                 </td>
-             </tr>
-             </tbody>
-         </table>
+            <h1>Today Diet</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Food</th>
+                        <th>Weight</th>
+                        <th>Calories</th>
+                        <th>Protein</th>
+                        <th>Fat</th>
+                        <th>Carbs</th>
+                        <th>Sugar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="d : ${diet}">
+                        <td><span th:text="${d.getFood()} + ' '"> </span></td>
+                        <td><span th:text="${d.getWeight()} + ' '"> </span></td>
+                        <td><span th:text="${d.getCalories()}"></span></td>
+                        <td><span th:text="${d.getProtein()}"></span></td>
+                        <td><span th:text="${d.getFat()}"></span></td>
+                        <td><span th:text="${d.getCarbohydrates()}"></span></td>
+                        <td><span th:text="${d.getSugar()}"></span></td>
+                        <td>
+                            <form style="margin: 0" th:action="@{/diet/delete}" method="post">
+                                <button class="pop" type="submit" th:name="index" th:value="${d.getId()}">-</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="d-flex flex-row justify-content-center">
                 <form style="margin-right: 2px" method="get" action="/foods">
-                    <button type="submit" class="btn btn-lg btn-success btn-block" >food</button>
+                    <button type="submit" class="btn btn-lg btn-success btn-block">food</button>
                 </form>
-                <form style="margin-left: 2px"  method="get" action="/logout">
+                <form style="margin-left: 2px" method="get" action="/logout">
                     <button class="btn btn-lg btn-success btn-block" type="submit">Logout</button>
                 </form>
+            </div>
+            <!-- Works only when no empty diet!!! -->
+            <div th:if="${totalNutrition != null}">
+                <h2>Total Daily</h2>
+                <div th:object="${totalNutrition}" >
+                    <p th:text="' kcal '+ ${totalNutrition.getCalories()}" class="rounded border border-success"></p>
+                    <p th:text="' protein '+ ${totalNutrition.getProtein()}" class="rounded border border-info"></p>
+                    <p th:text="' fat ' + ${totalNutrition.getFat()}" class="rounded border border-warning"></p>
+                    <p th:text="' carbohydrates ' + ${totalNutrition.getCarbs()}" class="rounded border border-danger"></p>
+                    <p th:text="' sugar ' + ${totalNutrition.getSugar()}" class="rounded border border-white"></p>
+                </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

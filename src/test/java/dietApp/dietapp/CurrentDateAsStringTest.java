@@ -10,7 +10,7 @@ class CurrentDateAsStringTest {
     @Test
     void shouldReturnCorrectDate(){
         //given
-        String today = "2021-01-21";
+        String today = "2021-01-22";
         //when
         String currentDate = CurrentDateAsString.getTodayDate();
         //then
