@@ -10,7 +10,7 @@ Implemented functionality:
 - [x] Search food using rest api and display on site.
 - [x] Add food to the user diet plan.
 - [x] Delete food from the user diet plan.
-- [ ] Count total daily amount of nutritional values. 
+- [x] Count total daily amount of nutritional values. 
 - [x] Register using username, name and password
 - [ ] Register using username, email(with verification), password.
 - [x] Login.
