@@ -31,9 +31,9 @@ public class DietServiceImpl implements DietService {
                 food.getName(),
                 food.getWeight(),
                 food.getCalories(),
-                food.getCarbohydrates(),
-                food.getFat(),
                 food.getProtein(),
+                food.getFat(),
+                food.getCarbohydrates(),
                 food.getSugar(),
                 date
         ));

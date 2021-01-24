@@ -27,11 +27,11 @@ public class FoodController {
     @GetMapping("/foods")
     public String foodSearchForm(Model model){
         model.addAttribute("food", food);
-        model.addAttribute("foodName", new Food());
+        model.addAttribute("newFood", new Food());
         return "foods";
     }
 
-    @PostMapping("/foods")
+    @PostMapping("/foods/search")
     public String foodSearchSubmit(@ModelAttribute Food foodName) throws JsonProcessingException {
         food = foodService.searchFood(foodName.getName());
         return "redirect:/foods";
@@ -42,6 +42,13 @@ public class FoodController {
         dietService.addFoodToDiet(userService.getCurrentUserUsername(), DishType.OTHER,food);
         return "redirect:/diet";
     }
+
+    @PostMapping("/foods/put")
+    public String setNewFoodNutritionValuesByWeight(@ModelAttribute Food newFood){
+        food.setNewWeight(newFood.getWeight());
+        return "redirect:/foods";
+    }
+
 
 
 }

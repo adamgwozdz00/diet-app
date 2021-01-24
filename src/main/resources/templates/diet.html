@@ -2,21 +2,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Adam Gwóźdź">
     <title>Diet App</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/buttons.css">
+    <link rel="stylesheet" href="/css/base.css">
     <style>
-        body {
-            background-color: #333;
-            color: white;
-        }
-        @media only screen and (max-width: 440px) {
-        
-        }
         h1 {
             text-align: center;
         }
@@ -24,19 +19,11 @@
         form {
             margin: 0;
         }
-
-        .pop {
-            color: #fff;
-            font-size: large;
-            background-color: #28a745;
-            border-radius: 25em;
-            border: 1px solid transparent;
-        }
     </style>
 </head>
 
 <body>
-    <div class="d-flex justify-content-center" >
+    <div class="d-flex justify-content-center">
         <div class="d-flex flex-column">
             <h1>Today Diet</h1>
             <table class="table table-bordered">
@@ -49,6 +36,11 @@
                         <th>Fat</th>
                         <th>Carbs</th>
                         <th>Sugar</th>
+                        <th>
+                            <form style="margin-right: 2px" method="get" action="/foods">
+                                <button type="submit" class="pop">+</button>
+                            </form>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,24 +60,22 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="d-flex flex-row justify-content-center">
-                <form style="margin-right: 2px" method="get" action="/foods">
-                    <button type="submit" class="btn btn-lg btn-success btn-block">food</button>
-                </form>
-                <form style="margin-left: 2px" method="get" action="/logout">
-                    <button class="btn btn-lg btn-success btn-block" type="submit">Logout</button>
-                </form>
-            </div>
             <!-- Works only when no empty diet!!! -->
             <div th:if="${totalNutrition != null}">
                 <h2>Total Daily</h2>
-                <div th:object="${totalNutrition}" >
+                <div th:object="${totalNutrition}">
                     <p th:text="' kcal '+ ${totalNutrition.getCalories()}" class="rounded border border-success"></p>
                     <p th:text="' protein '+ ${totalNutrition.getProtein()}" class="rounded border border-info"></p>
                     <p th:text="' fat ' + ${totalNutrition.getFat()}" class="rounded border border-warning"></p>
-                    <p th:text="' carbohydrates ' + ${totalNutrition.getCarbs()}" class="rounded border border-danger"></p>
+                    <p th:text="' carbohydrates ' + ${totalNutrition.getCarbs()}" class="rounded border border-danger">
+                    </p>
                     <p th:text="' sugar ' + ${totalNutrition.getSugar()}" class="rounded border border-white"></p>
                 </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <form style="margin-left: 2px" method="get" action="/logout">
+                    <button class="btn btn-lg button-sign btn-block" type="submit">Logout</button>
+                </form>
             </div>
         </div>
     </div>

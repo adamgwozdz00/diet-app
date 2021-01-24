@@ -4,30 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Adam Gwóźdź">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/foodsSmall.css">
+    <link rel="stylesheet" href="/css/buttons.css">
+    <link rel="stylesheet" href="/css/base.css">
 
     <title>Diet App</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
     <style>
-        body {
-            margin: 0;
-            background-color: #333333;
-            color: white
-        }
-
         @media only screen and (max-width: 440px) {
-           #main{
-               height: 80vh;
-           }  
+            #main {
+                height: 80vh;
+            }
         }
 
         .result,
         h1 {
             text-align: center;
+        }
+
+        .input-c {
+            display: block;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #212529;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            width: 96px;
         }
     </style>
 </head>
@@ -36,14 +43,15 @@
     <div class="d-flex justify-content-center align-items-center" id="main">
         <div class="d-flex flex-column">
             <h1>Search Food</h1>
-            <form action="#" th:action="@{/foods}" th:object="${foodName}" method="post">
+            <form action="#" th:action="@{/foods/search}" th:object="${newFood}" method="post">
                 <div class="d-flex flex-row">
-                    <p><input type="text" th:field="*{name}" class="form-control" placeholder="food name"></p>
-                    <p><input type="submit" value="Search" class="btn btn-outline-success"></p>
+                    <p><input type="text" th:field="*{name}" class="form-control change-color" placeholder="food name">
+                    </p>
+                    <p><input type="submit" value="Search" class="btn btn-search"></p>
                 </div>
             </form>
             <h1 th:text="${food.getName()} "></h1>
-            <div class="result">
+            <div class="result" style="text-align: center">
                 <p class="rounded border border-secondary" th:text="'Calories: ' + ${food.getCalories()} + ' kcal'" />
                 <p class="rounded border border-success" th:text="'Weight: ' + ${food.getWeight()} +' gram'" />
                 <p class="rounded border border-danger"
@@ -52,9 +60,18 @@
                 <p class="rounded border border-info" th:text="'Protein: ' + ${food.getProtein()} + ' gram'" />
                 <p class="rounded border border-white" th:text="'Sugar: ' + ${food.getSugar()} + ' gram'" />
             </div>
-            <form th:action="@{/foods/add}" th:method="get">
-                <button type="Submit" class="btn btn-outline-success">Add food</button>
-            </form>
+            <div class="d-flex flex-row">
+                <form th:action="@{/foods/add}" th:method="get">
+                    <button type="Submit" class="btn btn-search">Add food</button>
+                </form>
+                <form th:action="@{/foods/put}" th:object="${newFood}" method="post">
+                    <div class="d-flex flex-row">
+                        <p><input type="number" th:field="*{weight}" class="input-c change-color" placeholder="weight">
+                        </p>
+                        <p><input type="submit" value="set weight" class="btn btn-search"></p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
