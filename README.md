@@ -34,17 +34,10 @@ Technologies:
 3. JUnit5
 
 Prewiew
-
-![login](https://user-images.githubusercontent.com/70854700/105379557-39dc4800-5c0d-11eb-9125-1f3793676ab6.png)
-
-![register](https://user-images.githubusercontent.com/70854700/105379628-51b3cc00-5c0d-11eb-99c6-a66a684fa0ab.png)
-
-![search](https://user-images.githubusercontent.com/70854700/105379690-62fcd880-5c0d-11eb-9f6a-33e27b043f06.png)
-
-![search2](https://user-images.githubusercontent.com/70854700/105379727-6b551380-5c0d-11eb-8ef5-347d605b7e2f.png)
-![search3](https://user-images.githubusercontent.com/70854700/105379796-7c9e2000-5c0d-11eb-891c-a87b8a29d3af.png)
-
-![menu1](https://user-images.githubusercontent.com/70854700/105379848-8de72c80-5c0d-11eb-90d8-ea6dd501c466.png)
-
-
-![menu2](https://user-images.githubusercontent.com/70854700/105379925-a0616600-5c0d-11eb-9e9e-8f8d67240f03.png)
+![Zrzut ekranu 2021-01-24 o 22 00 21](https://user-images.githubusercontent.com/70854700/105643424-17a62c80-5e90-11eb-8ccd-aab740fb84d3.png)
+![Zrzut ekranu 2021-01-24 o 22 00 31](https://user-images.githubusercontent.com/70854700/105643425-18d75980-5e90-11eb-8c3a-3c486c9588f4.png)
+![Zrzut ekranu 2021-01-24 o 22 00 49](https://user-images.githubusercontent.com/70854700/105643427-196ff000-5e90-11eb-903e-2b4497d51b7c.png)
+![Zrzut ekranu 2021-01-24 o 22 01 01](https://user-images.githubusercontent.com/70854700/105643428-196ff000-5e90-11eb-9fa7-b328603e4253.png)
+![Zrzut ekranu 2021-01-24 o 22 01 13](https://user-images.githubusercontent.com/70854700/105643429-1a088680-5e90-11eb-84d2-453191213378.png)
+![Zrzut ekranu 2021-01-24 o 22 01 31](https://user-images.githubusercontent.com/70854700/105643430-1aa11d00-5e90-11eb-8f60-0997632ade7a.png)
+![Zrzut ekranu 2021-01-24 o 22 01 57](https://user-images.githubusercontent.com/70854700/105643431-1aa11d00-5e90-11eb-9986-aaf0e4bc8320.png)
