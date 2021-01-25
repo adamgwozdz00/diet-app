@@ -5,7 +5,7 @@ package dietApp.dietapp.food.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import dietApp.dietapp.food.dto.Food;
 import dietApp.dietapp.diet.entity.DishType;
-import dietApp.dietapp.diet.service.impl.DietServiceImpl;
+import dietApp.dietapp.diet.service.DietService;
 import dietApp.dietapp.food.service.FoodService;
 import dietApp.dietapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class FoodController {
 
     private final FoodService foodService;
-    private final DietServiceImpl dietService;
+    private final DietService dietService;
     private final UserService userService;
     private Food food = new Food();
 

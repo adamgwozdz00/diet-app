@@ -1,4 +1,4 @@
-package dietApp.dietapp.user.service.impl;
+package dietApp.dietapp.user.service;
 
 import dietApp.dietapp.user.entity.User;
 import lombok.RequiredArgsConstructor;

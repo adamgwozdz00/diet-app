@@ -1,4 +1,4 @@
-package dietApp.dietapp.controller;
+package dietApp.dietapp;
 
 
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class TemplatesController {
+public class MainView {
     @GetMapping
     public String welcome() {
         return "index";

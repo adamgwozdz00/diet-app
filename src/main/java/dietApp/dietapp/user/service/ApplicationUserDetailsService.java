@@ -1,6 +1,6 @@
-package dietApp.dietapp.user.service.impl;
+package dietApp.dietapp.user.service;
 
-import dietApp.dietapp.exception.UserAlreadyExistException;
+import dietApp.dietapp.user.exception.UserAlreadyExistException;
 import dietApp.dietapp.user.entity.User;
 import dietApp.dietapp.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

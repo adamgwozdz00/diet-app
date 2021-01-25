@@ -1,7 +1,7 @@
-package dietApp.dietapp.user.registration.controller;
+package dietApp.dietapp.user.controller;
 
 import dietApp.dietapp.user.entity.User;
-import dietApp.dietapp.user.registration.service.UserRegistrationService;
+import dietApp.dietapp.user.service.UserRegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-public class RegisterController {
+public class UserController {
 
     private final UserRegistrationService registerService;
 
@@ -24,8 +24,14 @@ public class RegisterController {
         return "/register";
     }
 
+    @GetMapping("login")
+    public String getLoginView(){
+        return "login";
+    }
+
+
     @PostMapping("/register")
-    public String createNewUser(@Valid User user, BindingResult bindingResult) throws Exception {
+    public String createNewUser(@Valid User user, BindingResult errors) throws Exception {
         registerService.registerUser(user);
         return "/login";
     }

@@ -1,4 +1,4 @@
-package dietApp.dietapp.exception;
+package dietApp.dietapp.user.exception;
 
 
 public class UserAlreadyExistException extends RuntimeException{
