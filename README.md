@@ -3,7 +3,7 @@ Calories calculator app in build...
 It will be an app that allows the user to plan his daily diet and calculate the amount of calories, protein, fat, carbs and sugar.
 
 Description:
-Application gets data from rest api https://www.edamam.com/ then map to the food class.
+Application gets data from rest api https://www.edamam.com then map to the food class.
 All users and diet information data is collected in two tables in MySql database. It allows registered users to search food information and create their own menu with calculated nutrition values. 
 
 Implemented functionality:
