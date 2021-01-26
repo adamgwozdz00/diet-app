@@ -1,6 +1,6 @@
 package dietApp.dietapp.user.service;
 
-import dietApp.dietapp.user.exception.UserAlreadyExistException;
+
 import dietApp.dietapp.user.entity.User;
 import dietApp.dietapp.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = repository.findByUsername(username);
 
-        user.orElseThrow(()-> new UserAlreadyExistException("Not found: " + username));
+        user.orElseThrow(()-> new UsernameNotFoundException("Not found: " + username));
 
         return user.map(ApplicationUserDetails::new).get();
     }

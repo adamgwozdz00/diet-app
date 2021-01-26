@@ -18,7 +18,7 @@ public class FoodApiService {
     private ApplicationCustomMapper mapper;
 
     public Food mapClientToFood(String name) throws JsonProcessingException {
-        CustomJsonNode node = new CustomJsonNode(mapper.toJson(client.getFoodAsString(name)));
+        CustomJsonNode node = new CustomJsonNode(mapper.toJson(client.getFoodAsObject(name)));
 
         return new Food(
                 name,

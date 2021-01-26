@@ -45,7 +45,7 @@
             <h1>Search Food</h1>
             <form action="#" th:action="@{/foods/search}" th:object="${newFood}" method="post">
                 <div class="d-flex flex-row">
-                    <p><input type="text" th:field="*{name}" class="form-control change-color" placeholder="food name">
+                    <p><input type="text" th:field="*{name}" class="form-control change-color" placeholder="food name" required="">
                     </p>
                     <p><input type="submit" value="Search" class="btn btn-search"></p>
                 </div>
