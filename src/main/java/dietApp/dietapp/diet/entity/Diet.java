@@ -1,8 +1,6 @@
 package dietApp.dietapp.diet.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 
@@ -12,8 +10,10 @@ import javax.persistence.Id;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Setter
+@Builder
 public class Diet {
 
     @Id
@@ -21,11 +21,8 @@ public class Diet {
     private Long id;
 
     private String user;
-
     private String date;
-    //default
     private DishType dishType = DishType.OTHER;
-
     private String food;
     private float weight;
     private float calories;
@@ -34,16 +31,4 @@ public class Diet {
     private float carbohydrates;
     private float sugar;
 
-    public Diet(String user, DishType dishType, String food,float weight,float calories, float protein, float fat, float carbohydrates, float sugar, String date) {
-        this.user = user;
-        this.date = date;
-        this.dishType = dishType;
-        this.food = food;
-        this.weight = weight;
-        this.calories = calories;
-        this.protein = protein;
-        this.fat = fat;
-        this.carbohydrates = carbohydrates;
-        this.sugar = sugar;
-    }
 }

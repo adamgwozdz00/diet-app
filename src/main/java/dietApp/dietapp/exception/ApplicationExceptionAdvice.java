@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ApplicationExceptionAdvice {
 
     @ResponseBody
-    @ExceptionHandler(value = {UserAlreadyExistException.class,UserPasswordsNotSameException.class, UsernameNotFoundException.class})
+    @ExceptionHandler(value = {UserAlreadyExistException.class,UserPasswordsNotSameException.class, UsernameNotFoundException.class, FoodNotExistException.class})
     public ResponseEntity<Object> ApplicationExceptionHandler(ApplicationRequestException e){
             ApplicationException applicationException = new ApplicationException(
                     e.getStatus(),

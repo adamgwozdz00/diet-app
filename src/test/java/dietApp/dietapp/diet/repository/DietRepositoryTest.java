@@ -35,9 +35,42 @@ class DietRepositoryTest {
     void init(){
         dietList = new ArrayList<>();
         today = CurrentDateAsString.getTodayDate();
-        dietOne = new Diet("user1", DishType.OTHER,"chicken",100,100,21,1,0,0, today);
-        dietTwo = new Diet("user2", DishType.DINNER,"beef",100,200,25,10,0,0, today);
-        dietThree = new Diet("user1", DishType.OTHER,"chicken",100,100,21,1,0,0,"2020-12-10");
+        dietOne =  Diet.builder()
+                .user("user1")
+                .date(today)
+                .dishType(DishType.OTHER)
+                .food("chicken")
+                .weight(100)
+                .calories(100)
+                .protein(21)
+                .fat(1)
+                .carbohydrates(0)
+                .sugar(0)
+                .build();
+        dietTwo = Diet.builder()
+                .user("user2")
+                .date(today)
+                .dishType(DishType.OTHER)
+                .food("beef")
+                .weight(100)
+                .calories(200)
+                .protein(24)
+                .fat(10)
+                .carbohydrates(0)
+                .sugar(0)
+                .build();
+        dietThree = Diet.builder()
+                .user("user1")
+                .date("21-01-2021")
+                .dishType(DishType.OTHER)
+                .food("chicken")
+                .weight(100)
+                .calories(100)
+                .protein(21)
+                .fat(1)
+                .carbohydrates(0)
+                .sugar(0)
+                .build();
         dietList.add(dietOne);
         dietList.add(dietTwo);
         dietList.add(dietThree);
@@ -56,12 +89,11 @@ class DietRepositoryTest {
     @Test
     void  shouldReturnCorrectlyDiet(){
         //given
-        Diet diet = new Diet("user1", DishType.OTHER,"chicken",100,100,21,1,0,0, today);
         //when
         Diet result = dietRepository.findAllByUserAndDate("user1", today).get(0);
         //then
-        assertThat(result.getFood()).isEqualTo(diet.getFood());
-        assertThat(result.getDate()).isEqualTo(diet.getDate());
+        assertThat(result.getFood()).isEqualTo(dietOne.getFood());
+        assertThat(result.getDate()).isEqualTo(dietOne.getDate());
     }
 
     @Test

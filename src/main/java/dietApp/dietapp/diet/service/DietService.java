@@ -23,18 +23,19 @@ public class DietService{
                               DishType dishType,
                               Food food){
 
-        return dietRepository.save(new Diet(
-                username,
-                dishType,
-                food.getName(),
-                food.getWeight(),
-                food.getCalories(),
-                food.getProtein(),
-                food.getFat(),
-                food.getCarbohydrates(),
-                food.getSugar(),
-                date
-        ));
+        return dietRepository.save(Diet.builder()
+                .user(username)
+                .date(date)
+                .dishType(dishType)
+                .food(food.getName())
+                .weight(food.getWeight())
+                .calories(food.getCalories())
+                .protein(food.getProtein())
+                .fat(food.getFat())
+                .carbohydrates(food.getCarbohydrates())
+                .sugar(food.getSugar())
+                .build()
+        );
     }
 
     public void deleteFood(Long id){

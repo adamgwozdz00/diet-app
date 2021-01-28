@@ -31,7 +31,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public String createNewUser(@Valid User user, BindingResult errors) throws Exception {
+    public String createNewUser(@Valid User user) throws Exception {
         registerService.registerUser(user);
         return "/login";
     }

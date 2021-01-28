@@ -3,6 +3,7 @@ package dietApp.dietapp.food.controller;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import dietApp.dietapp.exception.FoodNotExistException;
 import dietApp.dietapp.food.dto.Food;
 import dietApp.dietapp.diet.entity.DishType;
 import dietApp.dietapp.diet.service.DietService;
@@ -11,6 +12,7 @@ import dietApp.dietapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -32,7 +34,7 @@ public class FoodController {
     }
 
     @PostMapping("/foods/search")
-    public String foodSearchSubmit(@ModelAttribute Food foodName) throws JsonProcessingException {
+    public String foodSearchSubmit(@ModelAttribute Food foodName) throws JsonProcessingException, FoodNotExistException {
         food = foodService.searchFood(foodName.getName());
         return "redirect:/foods";
     }
