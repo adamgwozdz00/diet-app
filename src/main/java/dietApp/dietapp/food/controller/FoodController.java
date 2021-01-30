@@ -30,11 +30,12 @@ public class FoodController {
     public String foodSearchForm(Model model){
         model.addAttribute("food", food);
         model.addAttribute("newFood", new Food());
+
         return "foods";
     }
 
     @PostMapping("/foods/search")
-    public String foodSearchSubmit(@ModelAttribute Food foodName) throws JsonProcessingException, FoodNotExistException {
+    public String foodSearchSubmit(@ModelAttribute Food foodName){
         food = foodService.searchFood(foodName.getName());
         return "redirect:/foods";
     }

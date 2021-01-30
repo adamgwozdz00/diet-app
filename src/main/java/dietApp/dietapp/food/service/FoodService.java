@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
 
-import static dietApp.dietapp.food.validate.FoodValidation.isFoodExist;
 
 @Service
 @RequiredArgsConstructor
@@ -17,11 +16,14 @@ public class FoodService{
 
     private final FoodApiService foodApiService;
 
-    public Food searchFood(String foodName) throws JsonProcessingException, FoodNotExistException {
-        Food food = foodApiService.mapClientToFood(foodName);
-        if (isFoodExist(food)){
+    public Food searchFood(String foodName) {
+        try {
+            Food food = foodApiService.mapClientToFood(foodName);
             return food;
-        } else throw new FoodNotExistException(foodName);
+        } catch (JsonProcessingException | FoodNotExistException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
 }

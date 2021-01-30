@@ -16,7 +16,7 @@ public class CustomJsonNode {
     public CustomJsonNode(JsonNode node) {
         this.node = node;
     }
-    //To handle with items which
+    //To handle with items which have some values equals to zero
     public CustomJsonNode get(String string) throws JsonProcessingException {
         if (node.get(string) == null)
             return new CustomJsonNode(mapper.parse("{ \""+string+"\": 0.0 }"));

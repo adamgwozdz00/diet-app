@@ -22,22 +22,22 @@
             <p>
                 <label for="username" class="sr-only">Username</label>
                 <input type="text" th:field="*{username}" id="username" name="username"
-                    class="form-control change-color" placeholder="Username" required="" autofocus="">
+                    class="form-control change-color" placeholder="Username" minlength="3" required autofocus="">
             </p>
             <p>
                 <label for="name" class="sr-only">name</label>
                 <input type="text" th:field="*{name}" id="name" name="name" class="form-control change-color"
-                    placeholder="Name" required="" autofocus="">
+                    placeholder="Name" required autofocus="">
             </p>
             <p>
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" th:field="*{password}" id="password" name="password"
-                    class="form-control change-color" placeholder="Password" required="">
+                    class="form-control change-color" placeholder="Password" minlength="6" required>
             </p>
             <p>
                 <label for="confirmPassword" class="sr-only">Confirm Password</label>
                 <input type="password" th:field="*{confirmPassword}" id="confirmPassword" name="confirmPassword"
-                    class="form-control change-color" placeholder="confirmPassword" required="">
+                    class="form-control change-color" placeholder="confirmPassword" minlength="6" required>
             </p>
             <input name="_csrf" type="hidden" value="60c9dc4c-540b-4fa1-ba67-5845c39f9c4a">
             <div class="d-flex justify-content-center">

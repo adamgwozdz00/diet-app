@@ -1,21 +1,19 @@
 package dietApp.dietapp.user.controller;
 
 import dietApp.dietapp.user.entity.User;
-import dietApp.dietapp.user.service.UserRegistrationService;
+import dietApp.dietapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserRegistrationService registerService;
+    private final UserService userService;
 
     @GetMapping("/register")
     public String registration(Model model){
@@ -31,9 +29,10 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public String createNewUser(@Valid User user) throws Exception {
-        registerService.registerUser(user);
-        return "/login";
+    public String createNewUser(User user) throws Exception {
+        if(userService.registerUser(user) != null)
+            return "/login";
+        else return "/register";
     }
 
 }

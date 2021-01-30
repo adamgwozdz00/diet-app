@@ -6,11 +6,12 @@ import dietApp.dietapp.user.entity.User;
 import dietApp.dietapp.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+
+@Component
 @RequiredArgsConstructor
-public class UserRegistrationService{
+public class UserRegistration {
 
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
