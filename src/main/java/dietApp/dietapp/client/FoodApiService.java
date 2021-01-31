@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class FoodApiService {
 
     private final FoodApiClient client;
-    private ApplicationCustomMapper mapper;
+    private final ApplicationCustomMapper mapper;
 
     public Food mapClientToFood(String name) throws JsonProcessingException, FoodNotExistException {
         CustomJsonNode node = new CustomJsonNode(mapper.toJson(client.getFoodAsObject(name)));

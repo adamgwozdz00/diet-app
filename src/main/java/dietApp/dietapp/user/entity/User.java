@@ -29,6 +29,10 @@ public class User {
     private String username;
 
     private String name;
+    
+    @Column(unique = true)
+    @NotBlank(message = "Email cannot be empty")
+    private String email;
 
     @Size(min = 6, message = "password too short")
     @NotBlank(message = "Password cannot be empty")
@@ -38,7 +42,7 @@ public class User {
     private String confirmPassword;
 
     @Column(name = "enabled")
-    private boolean active = true;
+    private boolean active = false;
     //By default
     private String roles = "USER";
 

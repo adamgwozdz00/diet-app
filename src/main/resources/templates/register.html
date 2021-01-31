@@ -30,6 +30,11 @@
                     placeholder="Name" required autofocus="">
             </p>
             <p>
+                <label for="name" class="sr-only">email</label>
+                <input type="email" th:field="*{email}" id="email" name="email" class="form-control change-color"
+                       placeholder="Email" required autofocus="">
+            </p>
+            <p>
                 <label for="password" class="sr-only">Password</label>
                 <input type="password" th:field="*{password}" id="password" name="password"
                     class="form-control change-color" placeholder="Password" minlength="6" required>
