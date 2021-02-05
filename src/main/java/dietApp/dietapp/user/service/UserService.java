@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 @RequiredArgsConstructor
@@ -29,5 +30,9 @@ public class UserService {
             System.out.println(e.getMessage() +" "+ e.getStatus());
         }
         return null;
+    }
+
+    public String confirmUser(String token){
+        return userRegistration.confirmToken(token);
     }
 }

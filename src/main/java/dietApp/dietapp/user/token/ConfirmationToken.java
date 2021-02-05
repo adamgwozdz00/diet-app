@@ -1,7 +1,7 @@
 package dietApp.dietapp.user.token;
 
 import dietApp.dietapp.user.entity.User;
-import dietApp.dietapp.user.service.ApplicationUserDetails;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class ConfirmationToken {
 
     @Id
@@ -31,15 +32,14 @@ public class ConfirmationToken {
     @ManyToOne
     @JoinColumn(
             nullable = false,
-            name = "user_id"
+            name = "users_id"
     )
     private User user;
 
-    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt, LocalDateTime confirmedAt, User user) {
+    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt,User user) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiredAt = expiredAt;
-        this.confirmedAt = confirmedAt;
         this.user = user;
     }
 }
