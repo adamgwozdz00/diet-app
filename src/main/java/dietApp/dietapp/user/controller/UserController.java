@@ -30,8 +30,9 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public String createNewUser(User user) throws Exception {
-        if(userService.registerUser(user) != null)
+    public String createNewUser(User user){
+        // if registration was successful
+        if(userService.registerUser(user))
             return "/login";
         else return "/register";
     }

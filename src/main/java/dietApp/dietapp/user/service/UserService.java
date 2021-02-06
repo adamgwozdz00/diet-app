@@ -23,13 +23,14 @@ public class UserService {
         return null;
     }
 
-    public User registerUser(User user){
+    public boolean registerUser(User user){
         try {
-           return userRegistration.registerUser(user);
+            userRegistration.registerUser(user);
+            return true;
         } catch (ApplicationRequestException e){
             System.out.println(e.getMessage() +" "+ e.getStatus());
         }
-        return null;
+        return false;
     }
 
     public String confirmUser(String token){
