@@ -1,6 +1,5 @@
 package dietApp.dietapp.user.service;
 import dietApp.dietapp.exception.*;
-import dietApp.dietapp.user.email.EmailFormula;
 import dietApp.dietapp.user.email.EmailSender;
 import dietApp.dietapp.user.entity.User;
 import dietApp.dietapp.user.repository.UserRepository;
