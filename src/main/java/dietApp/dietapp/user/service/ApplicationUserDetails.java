@@ -16,8 +16,6 @@ public class ApplicationUserDetails implements UserDetails {
 
     private final User user;
 
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.stream(this.user.getRoles().split(","))

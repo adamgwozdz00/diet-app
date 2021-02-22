@@ -4,38 +4,39 @@ import dietApp.dietapp.user.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
+import static org.assertj.core.api.Assertions.assertThat;
+
+
+@DataJpaTest
 class UserRepositoryTest {
 
     @Autowired
-    private UserRepository repository;
+    UserRepository repository;
+    @Autowired
+    TestEntityManager entityManager;
 
-    @BeforeEach
-    void init(){
+    @Test
+    void shouldUpdateUserActivity() {
+        //given
         User user = new User();
+        prepareUserData(user);
+        user = entityManager.persistAndFlush(user);
+        //when
+        int result = repository.enableUser(user.getUsername());
+        //then
+        assertThat(result).isEqualTo(1);
+    }
+
+    void prepareUserData(User user){
         user.setActive(false);
         user.setUsername("Username");
         user.setEmail("email@email.com");
         user.setPassword("secret123");
-        repository.save(user);
     }
-
-    @Test
-    void shouldUpdateUserActivityTrue(){
-        //given
-        User user;
-        String username = "Username";
-        //when
-        repository.enableUser(username);
-        user = repository.findByUsername(username).orElseThrow();
-        //then
-        assertTrue(user.isActive());
-    }
-
 
 
 
